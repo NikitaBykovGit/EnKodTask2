@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     component: DisplayerComponent,
     path: 'tile', loadChildren: () => import('./tile/tile.module').then(m => m.TileModule)
-  },
+  }
 ];
 
 @NgModule({

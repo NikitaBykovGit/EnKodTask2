@@ -1,1 +1,64 @@
-<p>creator works!</p>
+<div class="create-form">
+  <button
+    class="create-form__button"
+    [routerLink]="(isList$ | async) ? '' : '/tile'">
+    <mat-icon class="create-form__icon" svgIcon="Back"></mat-icon>
+    Назад
+  </button>
+  <form
+    [formGroup]="cityForm"
+    (submit)="createUpdateCity()"
+    class="create-form__form">
+    <div class="create-form__container">
+      <label for="city-name">Название города</label>
+      <input
+        id="city-name"
+        formControlName="cityName"
+        class="create-form__input"
+        type="text">
+    </div>
+    <div
+      *ngIf="cityForm.controls['cityName'].invalid && !isSuccess"
+      class="create-form__error">
+      Введите название города!
+    </div>
+    <div class="create-form__big-container">
+      <label for="city-description">Описание города</label>
+      <input
+        id="city-description"
+        formControlName="cityDescription"
+        class="create-form__big-input"
+        type="text">
+    </div>
+    <div
+      *ngIf="cityForm.controls['cityDescription'].invalid && !isSuccess"
+      class="create-form__error">
+      Введите описание города!
+    </div>
+    <div class="create-form__container">
+      <label for="image-link">Ссылка на картинку</label>
+      <input
+        id="image-link"
+        formControlName="imageLink"
+        class="create-form__input"
+        type="text">
+    </div>
+    <div
+      *ngIf="cityForm.controls['imageLink'].invalid && !isSuccess"
+      class="create-form__error">
+      Введите ссылку на картинку!
+    </div>
+    <button
+      *ngIf="!this.id"
+      class="create-form__create-button"
+      type="submit">
+      Создать
+    </button>
+    <button
+      *ngIf="this.id"
+      class="create-form__create-button"
+      type="submit">
+      Изменить
+    </button>
+  </form>
+</div>
