@@ -16,4 +16,6 @@ import { NavigatorComponent } from './navigator/navigator.component';
     DisplayerRoutingModule
   ]
 })
-export class DisplayerModule { }
+export class DisplayerModule {
+
+}

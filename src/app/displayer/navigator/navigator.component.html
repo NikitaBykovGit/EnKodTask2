@@ -1,1 +1,25 @@
-<p>navigator works!</p>
+<nav>
+  <div>
+    <button
+      [ngClass]="(isList$ | async)
+        ? 'nav__left-button_pressed'
+        : 'nav__left-button'"
+      [routerLink]="''"
+      (click)="setListDisplay()">
+      Список
+    </button>
+    <button
+      [ngClass]="!(isList$ | async)
+        ? 'nav__right-button_pressed'
+        : 'nav__right-button'"
+      [routerLink]="'/tile'"
+      (click)="setTileDisplay()">
+      Плитка
+    </button>
+  </div>
+    <button
+      class = "nav__create-button"
+      [routerLink]="'/create'">
+      Создать
+    </button>
+</nav>
